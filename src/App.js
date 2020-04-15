@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import CoursePreview from './components/CoursePreview';
 import Course from './components/Course';
@@ -13,7 +13,10 @@ function App() {
         <Switch>
           <div className="container">
             <Route exact path='/' component={CoursePreview} />
-            <Route path='/detail/:id' component={Course} />
+            <Route 
+              path='/detail/:id' 
+              render={(props) => <Course {...props} />} 
+            />
           </div>
         </Switch>
       </Router>
